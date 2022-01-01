@@ -23,7 +23,7 @@ build:
 
 .PHONY: run
 run:
-	swift run gbswift ${ROM}
+	@swift run gbswift ${ROM}
 
 .PHONY: run-helloworld
 run-helloworld:
