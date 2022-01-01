@@ -16,6 +16,18 @@ lint-strict:
 .PHONY: format
 format:
 	@${TOOLS_PATH}/swiftlint --fix --quiet
+
+.PHONY: build
+build:
+	swift build
+
+.PHONY: run
+run:
+	swift run gbswift ${ROM}
+
+.PHONY: run-helloworld
+run-helloworld:
+	@$(MAKE) ROM=Data/helloworld.gb
 	
 .PHONY: clean
 clean:
