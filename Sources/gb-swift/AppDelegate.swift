@@ -25,11 +25,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         NSApplication.shared.activate(ignoringOtherApps: true)
     }
-    
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        true
-    }
 }
 
 final class MainWindowController: NSWindowController, NSWindowDelegate {
+    func windowWillClose(_ notification: Notification) {
+        NSApplication.shared.stop(self)
+    }
 }
