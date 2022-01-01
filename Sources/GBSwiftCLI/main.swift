@@ -5,10 +5,10 @@ struct GBSwift: ParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "gbswift"
     )
-    
+
     @Argument(help: "Path to file.", transform: URL.init(fileURLWithPath:))
     var romFile: URL
-    
+
     mutating func run() throws {
         print("\(try Data(contentsOf: romFile).count) bytes")
         
