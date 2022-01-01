@@ -8,14 +8,31 @@ let package = Package(
     platforms: [
         .macOS(.v10_15)
     ],
+    products: [
+        .executable(
+            name: "gbswift",
+            targets: [
+                "GBSwiftCLI"
+            ]
+        ),
+        .library(
+            name: "GBSwiftKit",
+            targets: [
+                "GBSwiftKit"
+            ] 
+        ),
+    ],
     dependencies: [
+        .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMajor(from: "1.0.0")),
     ],
     targets: [
         .executableTarget(
-            name: "gb-swift",
+            name: "GBSwiftCLI",
             dependencies: [
-                .target(name: "GBSwift"),
-            ]),
-        .target(name: "GBSwift"),
+                .target(name: "GBSwiftKit"),
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+            ]
+        ),
+        .target(name: "GBSwiftKit"),
     ]
 )

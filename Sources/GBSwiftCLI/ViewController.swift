@@ -1,5 +1,4 @@
 import AppKit
-import GBSwift
 
 final class ViewController: NSViewController {
     override func loadView() {
@@ -9,7 +8,7 @@ final class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let label = NSTextField(labelWithString: GBSwift.text)
+        let label = NSTextField(labelWithString: "Hello world")
         label.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(label)
